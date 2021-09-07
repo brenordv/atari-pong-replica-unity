@@ -18,7 +18,7 @@ namespace Project.Scripts
                 thirdLife.enabled = false;
                 return;
             }
-            
+
             if (secondLife.enabled)
             {
                 secondLife.enabled = false;
@@ -27,9 +27,8 @@ namespace Project.Scripts
 
             firstLife.enabled = false;
         }
-        
     }
-    
+
     public class GameController : MonoBehaviour
     {
         public float scoreCoordinates = 3.4f;
@@ -42,6 +41,8 @@ namespace Project.Scripts
         public AudioClip[] pointScoredAudioClips;
         public AudioClip[] gameOverAudioClips;
         public LifeIndicators lifeIndicators;
+        public GameObject gameOverSign;
+
         private SoundPlayer _pointScoredSoundPlayerPrefab;
         private SoundPlayer _gameOverSoundPlayerPrefab;
         private int _scoreP1;
@@ -126,6 +127,21 @@ namespace Project.Scripts
             {
                 _gameOverSoundPlayerPrefab.Play();
                 DestroyCurrentBall();
+                gameOverSign.SetActive(true);
+                var gameOverText = gameOverSign.GetComponentInChildren<Text>();
+                if (_scoreP1 > _scoreP2)
+                {
+                    gameOverText.text = "P1 Wins!";
+                }
+                else if (_scoreP1 < _scoreP2)
+                {
+                    gameOverText.text = "P2 Wins!";
+                }
+                else
+                {
+                    gameOverText.text = "It's a tie!";
+                }
+
                 return;
             }
 
