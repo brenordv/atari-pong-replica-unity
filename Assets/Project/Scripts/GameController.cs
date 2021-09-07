@@ -110,12 +110,12 @@ namespace Project.Scripts
             gameOverSign.SetActive(false);
             SpawnBall();
         }
-        
+
         void Update()
         {
             if (_gameOver && Input.GetButtonDown("Submit"))
                 ResetGame();
-                
+
             if (_currentBall == null) return;
 
             if (_currentBall.transform.position.x > scoreCoordinates)
@@ -136,6 +136,7 @@ namespace Project.Scripts
             if (_gameOver) return;
 
             LoseLife();
+
             if (IsGameOver())
             {
                 _gameOverSoundPlayerPrefab.Play();
@@ -155,6 +156,7 @@ namespace Project.Scripts
                     gameOverText.text = "It's a tie!";
                 }
 
+                UpdateScoreboard();
                 return;
             }
 
