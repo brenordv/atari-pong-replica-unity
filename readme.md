@@ -10,6 +10,10 @@ Pong was the first commercially successful video game, and it helped to establis
 There's currently only one type of game: Player vs Player - best out of three.
 When the game is over, press ```return``` (or button zero on a controller) to reset.
 
+Player 1 can control the paddle using W (up) and S (down) and Player 2 can use Up and down arrows.
+Those controls are also mapped to joysticks 1 and 2.
+
+
 # TODO
 1. Add start menu
 2. Add AI so I can play this singleplayer
