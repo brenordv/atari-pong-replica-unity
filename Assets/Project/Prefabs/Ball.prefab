@@ -52,7 +52,7 @@ MonoBehaviour:
   verticalSpeed:
     minSpeed: 0.8
     maxSpeed: 1.2
-  difficultyMultiplier: 1.07
+  difficultyMultiplier: 1.1
   soundPlayerPrefab: {fileID: 4413235501152225887, guid: ba24963dba130c3489a684c3376d16ef, type: 3}
   audioClips:
   - {fileID: 8300000, guid: b67437108c467384aae84c0484273a4b, type: 3}

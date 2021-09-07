@@ -101,8 +101,21 @@ namespace Project.Scripts
             Destroy(_currentBall.gameObject);
         }
 
+        private void ResetGame()
+        {
+            _scoreP1 = 0;
+            _scoreP2 = 0;
+            _currentLives = lives;
+            _gameOver = false;
+            gameOverSign.SetActive(false);
+            SpawnBall();
+        }
+        
         void Update()
         {
+            if (_gameOver && Input.GetButtonDown("Submit"))
+                ResetGame();
+                
             if (_currentBall == null) return;
 
             if (_currentBall.transform.position.x > scoreCoordinates)
