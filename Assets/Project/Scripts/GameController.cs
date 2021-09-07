@@ -1,8 +1,35 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Project.Scripts
 {
+    [Serializable]
+    public class LifeIndicators
+    {
+        public Image firstLife;
+        public Image secondLife;
+        public Image thirdLife;
+
+        public void LoseLife()
+        {
+            if (thirdLife.enabled)
+            {
+                thirdLife.enabled = false;
+                return;
+            }
+            
+            if (secondLife.enabled)
+            {
+                secondLife.enabled = false;
+                return;
+            }
+
+            firstLife.enabled = false;
+        }
+        
+    }
+    
     public class GameController : MonoBehaviour
     {
         public float scoreCoordinates = 3.4f;
@@ -14,7 +41,7 @@ namespace Project.Scripts
         public SoundPlayer gameOverSoundPlayerPrefab;
         public AudioClip[] pointScoredAudioClips;
         public AudioClip[] gameOverAudioClips;
-
+        public LifeIndicators lifeIndicators;
         private SoundPlayer _pointScoredSoundPlayerPrefab;
         private SoundPlayer _gameOverSoundPlayerPrefab;
         private int _scoreP1;
@@ -44,6 +71,7 @@ namespace Project.Scripts
         {
             var remaining = _currentLives - 1;
             _currentLives = remaining < 0 ? 0 : remaining;
+            lifeIndicators.LoseLife();
         }
 
         private bool IsGameOver()
