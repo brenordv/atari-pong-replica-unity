@@ -6,6 +6,8 @@ Pong was the first commercially successful video game, and it helped to establis
 
 (Original introduction copied from wikipedia: https://en.wikipedia.org/wiki/Pong)
 
+Video demo: [unity_pong_replica.mp4](unity_pong_replica.mp4)
+
 # Current features
 There's currently only one type of game: Player vs Player - best out of three.
 When the game is over, press ```return``` (or button zero on a controller) to reset.
